@@ -1,0 +1,24 @@
+{
+  "name": "link-minifier",
+  "version": "0.0.0",
+  "description": "A link minifier server, like bit.ly, written in node.js",
+  "main": "server.js",
+  "dependencies": {
+    "hapi": "^6.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benmai/link-minifier.git"
+  },
+  "author": "Ben Isaacs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benmai/link-minifier/issues"
+  },
+  "homepage": "https://github.com/benmai/link-minifier"
+}
