@@ -16,7 +16,6 @@ server.route({
 		links[link] = url;
 		console.log('[SERVER] Set /' + link + ' => ' + url);
 		reply(url + ' can now be accessed at ' + 'localhost/' + link);
-		console.log(links);
 	}
 });
 
