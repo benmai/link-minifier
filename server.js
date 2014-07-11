@@ -2,7 +2,34 @@ var Hapi = require('hapi');
 
 var server = new Hapi.Server('localhost', 8000);
 
+var logPrefix = '[link-minifier] ';
+
 var links = {};
+
+server.route({
+	method: '*',
+	path: '/{p*}',
+	handler: function (request, reply) {
+		reply.redirect('/');
+	}
+});
+
+server.route({
+	method: 'GET',
+	path: '/',
+	handler: function (request, reply) {
+		var text = '<table><tr><th>long link</th><th>short link</th></tr>';
+		for (var link in links) {
+			if (!links.hasOwnProperty(link)) {
+				continue;
+			}
+			var short = request.info.host + '/' + link;
+			text += '<tr><td>' + links[link] + '</td><td>' + short + '</td></tr>';
+		}
+		text += '</table>';
+		reply(text);
+	}
+});
 
 server.route({
 	method: 'GET',
@@ -14,8 +41,8 @@ server.route({
 			url = 'http://' + url;
 		}
 		links[link] = url;
-		console.log('[SERVER] Set /' + link + ' => ' + url);
-		reply(url + ' can now be accessed at ' + 'localhost/' + link);
+		console.log(logPrefix + 'Set /' + link + ' => ' + url);
+		reply.redirect('/');
 	}
 });
 
@@ -27,7 +54,7 @@ server.route({
 		if (links.hasOwnProperty(link)) {
 			reply.redirect(links[link]);
 		} else {
-			reply(link + ' not found').code(404);
+			reply.redirect('/');
 		}
 	}
 });
