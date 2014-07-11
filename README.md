@@ -1,4 +1,4 @@
 link-minifier
 =============
 
-A link minifier, like bit.ly, written in node.js
+A link minifier server, like bit.ly, written in node.js
