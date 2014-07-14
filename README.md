@@ -1,7 +1,7 @@
 link-minifier
 =============
 
-A link minifier server, like bit.ly, written in node.js
+A link minifier server, like bit.ly, written in node.js. Set up to run on Heroku at link-minif.herokuapp.com.
 
 It has a REST API with the following commands:
 
