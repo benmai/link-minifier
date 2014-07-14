@@ -2,7 +2,7 @@ var Hapi = require('hapi');
 
 var port = process.env.PORT || 5000;
 
-var server = new Hapi.Server('localhost', port);
+var server = new Hapi.Server(port);
 
 var logPrefix = '[link-minifier] ';
 
