@@ -1,6 +1,8 @@
 var Hapi = require('hapi');
 
-var server = new Hapi.Server('localhost', 8000);
+var port - 80;
+
+var server = new Hapi.Server('localhost', port);
 
 var logPrefix = '[link-minifier] ';
 
@@ -61,4 +63,4 @@ server.route({
 
 server.start();
 
-console.log('Server is now running on localhost at port 8000');
+console.log('Server is now running on localhost at port ' + port);
